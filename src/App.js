@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import ToDoList from "./Components/toDoList";
+import ToDoList from "./Components/toDoItems";
 import './App.css';
 
 function App() {
@@ -9,6 +9,8 @@ function App() {
     {todo: 'sleep', checked: false}
   ]);
 
+
+
   function sortItem(arr, itemIndex) {
     if (arr[itemIndex].checked) {
       const removed = arr.splice(itemIndex,1);
@@ -17,12 +19,20 @@ function App() {
     return arr;
   }
 
-  function handleChange (index) {
+  function updateCheck (index) {
     const newState = [...toDos];
     newState[index].checked = !newState[index].checked; 
     sortItem(newState, index);
     setToDos(newState);
   }
+
+  function updateTodo(value, index) {
+    const newState = [...toDos];
+    newState[index].todo = value;
+    setToDos(newState);
+
+  }
+
 
   return (
     <div className="app">
@@ -30,8 +40,8 @@ function App() {
       {
         toDos.map( 
         (item, index, arr) => 
-        <ToDoList item= {item} index={index} key={index} handleChange={handleChange}
-        length={arr.length}
+        <ToDoList item= {item} index={index} key={index} length={arr.length} 
+        updateCheck={updateCheck} updateTodo={updateTodo}
         />
         )
       }

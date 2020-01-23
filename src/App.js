@@ -5,11 +5,10 @@ import './App.css';
 
 function App() {
   const [toDos, setToDos] = useState([
-    {todo: 'clean the laundry', checked: false},
-    {todo: 'make food for 7aboba', checked: false},
-    {todo: 'sleep', checked: false}
+    {todo: 'Clean the house', checked: false, key:0},
+    {todo: 'Feed the cat', checked: false, key:1},
+    {todo: 'Sleep', checked: false, key:2}
   ]);
-
 
   function sortItem(arr, itemIndex) {
     if (arr[itemIndex].checked) {
@@ -17,6 +16,12 @@ function App() {
       arr.splice(arr.length, 0, removedItem[0]);
     }
     return arr;
+  }
+
+  function insertTodo(item) {
+    const newState = [...toDos];
+    newState.unshift(item);
+    setToDos(newState);
   }
 
   function updateCheck (index) {
@@ -41,11 +46,11 @@ function App() {
   return (
     <div className="app">
       <h1>Your To Do List</h1>
-      <ToDoForm />
+      <ToDoForm insertTodo={insertTodo} todoListLength={toDos.length}/>
       {
         toDos.map( 
         (item, index, arr) => 
-        <ToDoList item= {item} index={index} key={index} length={arr.length} 
+        <ToDoList item= {item} index={index} key={item.key} length={arr.length} 
         updateCheck={updateCheck} updateTodo={updateTodo} updateDelete={updateDelete}
         />
         )

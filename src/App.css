@@ -12,11 +12,9 @@
 
 .item {
   font-size: 1.5em;
+  margin-top: 30px;
 }
 
-span, .item > input [type=text] {
-  width: 60%;
-}
 
 .checked {
   text-decoration-line: line-through;
@@ -24,8 +22,17 @@ span, .item > input [type=text] {
 
 .hidden{
   display: none;
+  width: 60%;
 }
 
 .unhidden{
   display: inline-block;
+}
+
+.form input{
+  width: 60%;
+}
+
+.form button {
+  margin-left: 30px;
 }

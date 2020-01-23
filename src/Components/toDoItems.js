@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function ToDoList ({item , index, length, updateCheck, updateTodo, updateDelete}) {
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState(item.todo);
     const [editBtnClicked, setEditBtnClicked] = useState(false);
 
     const isChecked = item.checked ? "checked": "unchecked";
@@ -19,12 +19,12 @@ function ToDoList ({item , index, length, updateCheck, updateTodo, updateDelete}
           e.target.childNodes[0].nodeValue = "Edit";
         } 
         setEditBtnClicked(!editBtnClicked);
-        if (inputValue) {
+        if(inputValue !== item.todo && inputValue !=='') {
           updateTodo(inputValue, index);
         }    
       }
 
-      function handleDelete () {
+      function handleDelete (e) {
         updateDelete(index);
       }
 
@@ -40,7 +40,7 @@ function ToDoList ({item , index, length, updateCheck, updateTodo, updateDelete}
             onChange= {() => updateCheck(index)}
             />
             <span className={`${spanDisplayed} ${isChecked}`}> {item.todo} </span>
-            <input type="text" className={inputDisplayed} onChange={handleInputValue}  />
+            <input type="text" className={inputDisplayed} onChange={handleInputValue} value={inputValue} />
             <button  onClick= {handleEdit}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
 

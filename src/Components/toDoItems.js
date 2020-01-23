@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-function ToDoList ({item , index, length, updateCheck, updateTodo, handleDelete}) {
+function ToDoList ({item , index, length, updateCheck, updateTodo, updateDelete}) {
     const [inputValue, setInputValue] = useState('');
     const [editBtnClicked, setEditBtnClicked] = useState(false);
 
     const isChecked = item.checked ? "checked": "unchecked";
     const spanDisplayed = editBtnClicked ? "hidden": "unhidden" ;
     const inputDisplayed = !editBtnClicked ? "hidden": "unhidden" ;
+    const horizentalLineDisplayed = index === length-1 ? "hidden": "";
 
     function handleEdit(e) {
         //when using state it will update all items 
@@ -17,10 +18,14 @@ function ToDoList ({item , index, length, updateCheck, updateTodo, handleDelete}
         else {
           e.target.childNodes[0].nodeValue = "Edit";
         } 
-
         setEditBtnClicked(!editBtnClicked);
-        
-        updateTodo(inputValue, index);
+        if (inputValue) {
+          updateTodo(inputValue, index);
+        }    
+      }
+
+      function handleDelete () {
+        updateDelete(index);
       }
 
     function handleInputValue(e){
@@ -37,9 +42,9 @@ function ToDoList ({item , index, length, updateCheck, updateTodo, handleDelete}
             <span className={`${spanDisplayed} ${isChecked}`}> {item.todo} </span>
             <input type="text" className={inputDisplayed} onChange={handleInputValue}  />
             <button  onClick= {handleEdit}>Edit</button>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
 
-            <hr className={index === length-1 ? "hidden": ""}/>
+            <hr className={horizentalLineDisplayed}/>
         </div>
 
     );

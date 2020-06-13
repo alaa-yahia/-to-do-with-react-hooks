@@ -22,17 +22,26 @@
 
 .hidden{
   display: none;
-  width: 60%;
+
 }
 
 .unhidden{
   display: inline-block;
+  width: 60%;
+  padding-left: 10px;
 }
 
 .form input{
   width: 60%;
 }
 
+button {
+  margin-right: 10px;
+  background-color: white;
+  color: black;
+  border: 2px solid #080808;
+}
+
 .form button {
-  margin-left: 30px;
+  margin-left: 25px;
 }

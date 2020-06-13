@@ -41,8 +41,11 @@ function ToDoList ({item , index, length, updateCheck, updateTodo, updateDelete}
             />
             <span className={`${spanDisplayed} ${isChecked}`}> {item.todo} </span>
             <input type="text" className={inputDisplayed} onChange={handleInputValue} value={inputValue} />
+        
             <button  onClick= {handleEdit}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
+          
+
 
             <hr className={horizentalLineDisplayed}/>
         </div>

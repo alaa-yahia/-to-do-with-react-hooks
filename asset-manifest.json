@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/To-do-List-with-React-Hooks/static/css/main.b349833c.css",
+    "main.js": "/To-do-List-with-React-Hooks/static/js/main.36c8dc76.js",
+    "index.html": "/To-do-List-with-React-Hooks/index.html",
+    "main.b349833c.css.map": "/To-do-List-with-React-Hooks/static/css/main.b349833c.css.map",
+    "main.36c8dc76.js.map": "/To-do-List-with-React-Hooks/static/js/main.36c8dc76.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b349833c.css",
+    "static/js/main.36c8dc76.js"
+  ]
+}

@@ -1,3 +1,4 @@
-This Project is a to-do app 
-nothing serious just to practice my react skills
+A To-Do app with edit & delete tasks.
+Build with React
+
 ![alt text](./to_do.png)
